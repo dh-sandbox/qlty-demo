@@ -1,0 +1,90 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  typescript:
+    name: TypeScript Tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: npm ci
+      - run: npm test -- --run --coverage
+      - uses: qltysh/qlty-coverage@main
+        if: always()
+        with:
+          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          files: app/coverage/lcov.info
+
+  python:
+    name: Python Tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: api
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[test]"
+      - run: pytest --cov --cov-report=xml
+      - uses: qltysh/qlty-coverage@main
+        if: always()
+        with:
+          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          files: api/coverage.xml
+
+  go:
+    name: Go Tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: worker
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+      - run: go test -coverprofile=coverage.out ./...
+      - name: Convert coverage to Cobertura
+        run: |
+          go install github.com/boumenot/gocover-cobertura@latest
+          gocover-cobertura < coverage.out > coverage.xml
+      - uses: qltysh/qlty-coverage@main
+        if: always()
+        with:
+          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          files: worker/coverage.xml
+
+  ruby:
+    name: Ruby Tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: scripts
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
+          working-directory: scripts
+      - run: bundle exec rspec
+      - uses: qltysh/qlty-coverage@main
+        if: always()
+        with:
+          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          files: scripts/coverage/coverage.json

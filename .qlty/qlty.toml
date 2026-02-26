@@ -1,0 +1,28 @@
+config_version = "0"
+
+[plugins.definitions.eslint]
+prefix = "app"
+
+[plugins.definitions.prettier]
+prefix = "app"
+
+[plugins.definitions.ruff]
+prefix = "api"
+
+[plugins.definitions.golangci-lint]
+prefix = "worker"
+
+[plugins.definitions.rubocop]
+prefix = "scripts"
+
+exclude_patterns = [
+  "node_modules/",
+  "dist/",
+  "coverage/",
+  "__pycache__/",
+  "*.egg-info/",
+  "vendor/",
+  ".venv/",
+  "venv/",
+  ".bundle/",
+]

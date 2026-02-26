@@ -1,0 +1,20 @@
+name: Qlty
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  qlty:
+    name: Qlty Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: qltysh/qlty-analysis@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}

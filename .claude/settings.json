@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "command": "qlty fmt --no-progress"
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "command": "if echo \"$INPUT\" | grep -q 'git commit'; then qlty check --no-progress || echo 'BLOCKED: qlty check failed. Fix issues before committing.'; fi"
+      }
+    ]
+  }
+}

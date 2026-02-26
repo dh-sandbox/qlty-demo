@@ -1,0 +1,42 @@
+# TypeScript / Node
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.vite/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+*.egg
+htmlcov/
+.coverage
+coverage.xml
+
+# Go
+vendor/
+*.exe
+*.out
+coverage.out
+
+# Ruby
+.bundle/
+vendor/bundle/
+Gemfile.lock
+coverage/
+.rspec_status
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment
+.env
+.env.local
