@@ -1,0 +1,30 @@
+name: Deploy Preview
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Set preview URL
+        run: echo "PREVIEW_URL=https://preview-${{ github.event.pull_request.head.ref }}.example.com" >> $GITHUB_ENV
+
+      - name: Build preview
+        run: |
+          echo "Building preview for PR #${{ github.event.pull_request.number }}"
+          echo "Deploying to ${{ env.PREVIEW_URL }}"
+
+      - name: Comment PR
+        uses: actions/github-script@master
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: ${{ github.event.pull_request.number }},
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Preview deployed to ${{ env.PREVIEW_URL }}'
+            })
