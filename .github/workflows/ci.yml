@@ -29,6 +29,7 @@ jobs:
         if: always()
         with:
           oidc: true
+          tag: app
           files: app/coverage/lcov.info
           add-prefix: app/
 
@@ -49,6 +50,7 @@ jobs:
         if: always()
         with:
           oidc: true
+          tag: api
           files: api/coverage.xml
           add-prefix: api/
 
@@ -73,6 +75,7 @@ jobs:
         if: always()
         with:
           oidc: true
+          tag: worker
           files: worker/coverage.xml
           add-prefix: worker/
 
@@ -94,5 +97,6 @@ jobs:
         if: always()
         with:
           oidc: true
+          tag: scripts
           files: scripts/coverage/coverage.json
           add-prefix: scripts/
