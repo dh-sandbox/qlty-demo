@@ -19,15 +19,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: npm
-          cache-dependency-path: app/package-lock.json
-      - run: npm ci
+      - run: npm install
       - run: npm test -- --run --coverage
       - uses: qltysh/qlty-action/coverage@main
         if: always()
         with:
           token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
           files: app/coverage/lcov.info
+          add-prefix: app/
 
   python:
     name: Python Tests
@@ -47,6 +46,7 @@ jobs:
         with:
           token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
           files: api/coverage.xml
+          add-prefix: api/
 
   go:
     name: Go Tests
@@ -59,6 +59,7 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: "1.22"
+          cache-dependency-path: worker/go.sum
       - run: go test -coverprofile=coverage.out ./...
       - name: Convert coverage to Cobertura
         run: |
@@ -69,6 +70,7 @@ jobs:
         with:
           token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
           files: worker/coverage.xml
+          add-prefix: worker/
 
   ruby:
     name: Ruby Tests
@@ -89,3 +91,4 @@ jobs:
         with:
           token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
           files: scripts/coverage/coverage.json
+          add-prefix: scripts/

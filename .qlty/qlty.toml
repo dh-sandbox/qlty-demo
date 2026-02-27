@@ -1,5 +1,17 @@
 config_version = "0"
 
+exclude_patterns = [
+  "node_modules/",
+  "dist/",
+  "coverage/",
+  "__pycache__/",
+  "*.egg-info/",
+  "vendor/",
+  ".venv/",
+  "venv/",
+  ".bundle/",
+]
+
 [plugins.definitions.eslint]
 prefix = "app"
 
@@ -14,15 +26,3 @@ prefix = "worker"
 
 [plugins.definitions.rubocop]
 prefix = "scripts"
-
-exclude_patterns = [
-  "node_modules/",
-  "dist/",
-  "coverage/",
-  "__pycache__/",
-  "*.egg-info/",
-  "vendor/",
-  ".venv/",
-  "venv/",
-  ".bundle/",
-]
