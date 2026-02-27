@@ -1,3 +1,6 @@
+[![Maintainability](https://qlty.sh/gh/dh-sandbox/projects/qlty-demo/maintainability.svg)](https://qlty.sh/gh/dh-sandbox/projects/qlty-demo)
+[![Code Coverage](https://qlty.sh/gh/dh-sandbox/projects/qlty-demo/coverage.svg)](https://qlty.sh/gh/dh-sandbox/projects/qlty-demo)
+
 # Qlty Demo Monorepo
 
 A polyglot monorepo demonstrating [Qlty](https://qlty.sh) code quality tools across four languages. Built as a reference for docs, blog posts, and customer onboarding.
