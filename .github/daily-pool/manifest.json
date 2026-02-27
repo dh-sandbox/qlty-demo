@@ -1,0 +1,92 @@
+{
+  "days": [
+    {
+      "day": 1,
+      "language": "typescript",
+      "title": "Add array utility functions",
+      "description": "Adds array helpers: chunk, unique, flatten, groupBy, zip",
+      "files": [
+        { "src": ".github/daily-pool/day-001/array.ts", "dest": "app/src/utils/array.ts" },
+        { "src": ".github/daily-pool/day-001/array.test.ts", "dest": "app/src/__tests__/array.test.ts" },
+        { "src": ".github/daily-pool/day-001/smells.ts", "dest": "app/src/utils/_internal/helpers.ts" }
+      ]
+    },
+    {
+      "day": 2,
+      "language": "python",
+      "title": "Add formatting utilities",
+      "description": "Adds format_bytes, format_duration, format_currency helpers",
+      "files": [
+        { "src": ".github/daily-pool/day-002/formatters.py", "dest": "api/api/formatters.py" },
+        { "src": ".github/daily-pool/day-002/test_formatters.py", "dest": "api/tests/test_formatters.py" },
+        { "src": ".github/daily-pool/day-002/smells.py", "dest": "api/api/_helpers.py" }
+      ]
+    },
+    {
+      "day": 3,
+      "language": "go",
+      "title": "Add retry with backoff utilities",
+      "description": "Adds RetryWithBackoff, ExponentialDelay, IsRetryable helpers",
+      "files": [
+        { "src": ".github/daily-pool/day-003/retry.go", "dest": "worker/processor/retry.go" },
+        { "src": ".github/daily-pool/day-003/retry_test.go", "dest": "worker/processor/retry_test.go" },
+        { "src": ".github/daily-pool/day-003/smells.go", "dest": "worker/processor/internal_helpers.go" }
+      ]
+    },
+    {
+      "day": 4,
+      "language": "ruby",
+      "title": "Add formatter utilities",
+      "description": "Adds format_bytes, format_duration, pluralize helpers",
+      "files": [
+        { "src": ".github/daily-pool/day-004/formatter.rb", "dest": "scripts/lib/formatter.rb" },
+        { "src": ".github/daily-pool/day-004/formatter_spec.rb", "dest": "scripts/spec/formatter_spec.rb" },
+        { "src": ".github/daily-pool/day-004/smells.rb", "dest": "scripts/lib/_report_helpers.rb" }
+      ]
+    },
+    {
+      "day": 5,
+      "language": "typescript",
+      "title": "Add object utility functions",
+      "description": "Adds pick, omit, deepClone, merge, isEqual helpers",
+      "files": [
+        { "src": ".github/daily-pool/day-005/object.ts", "dest": "app/src/utils/object.ts" },
+        { "src": ".github/daily-pool/day-005/object.test.ts", "dest": "app/src/__tests__/object.test.ts" },
+        { "src": ".github/daily-pool/day-005/smells.ts", "dest": "app/src/utils/_internal/config.ts" }
+      ]
+    },
+    {
+      "day": 6,
+      "language": "python",
+      "title": "Add text processing utilities",
+      "description": "Adds slugify, truncate, word_wrap, camel_to_snake helpers",
+      "files": [
+        { "src": ".github/daily-pool/day-006/text_utils.py", "dest": "api/api/text_utils.py" },
+        { "src": ".github/daily-pool/day-006/test_text_utils.py", "dest": "api/tests/test_text_utils.py" },
+        { "src": ".github/daily-pool/day-006/smells.py", "dest": "api/api/_text_helpers.py" }
+      ]
+    },
+    {
+      "day": 7,
+      "language": "go",
+      "title": "Add metrics collection utilities",
+      "description": "Adds Counter, Gauge, Histogram metric types",
+      "files": [
+        { "src": ".github/daily-pool/day-007/metrics.go", "dest": "worker/processor/metrics.go" },
+        { "src": ".github/daily-pool/day-007/metrics_test.go", "dest": "worker/processor/metrics_test.go" },
+        { "src": ".github/daily-pool/day-007/smells.go", "dest": "worker/processor/summary_helpers.go" }
+      ]
+    },
+    {
+      "day": 8,
+      "language": "ruby",
+      "title": "Add text processing utilities",
+      "description": "Adds word_frequency, extract_emails, redact helpers",
+      "files": [
+        { "src": ".github/daily-pool/day-008/text_processor.rb", "dest": "scripts/lib/text_processor.rb" },
+        { "src": ".github/daily-pool/day-008/text_processor_spec.rb", "dest": "scripts/spec/text_processor_spec.rb" },
+        { "src": ".github/daily-pool/day-008/smells.rb", "dest": "scripts/lib/_text_helpers.rb" }
+      ]
+    }
+  ]
+}
