@@ -173,6 +173,6 @@ describe('windChill', () => {
 
   it('calculates wind chill at 0°F with 10 mph wind', () => {
     const result = windChill(0, 10);
-    expect(result).toBeCloseTo(-22, 0);
+    expect(result).toBeCloseTo(-16, 0);
   });
 });
