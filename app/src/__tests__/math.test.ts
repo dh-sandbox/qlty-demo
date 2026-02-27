@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { clamp, lerp, roundTo, average, factorial } from '../utils/math';
+import { clamp, lerp, roundTo, average, sumOfSquares, euclideanDistance, factorial } from '../utils/math';
 
 describe('clamp', () => {
   it('returns the value when within range', () => {
@@ -79,6 +79,44 @@ describe('average', () => {
   it('throws an error for an empty array', () => {
     expect(() => average([])).toThrow(
       'Cannot compute average of an empty array'
+    );
+  });
+});
+
+describe('sumOfSquares', () => {
+  it('computes sum of squares for [1, 2, 3]', () => {
+    expect(sumOfSquares([1, 2, 3])).toBe(14);
+  });
+
+  it('returns 0 for an empty array', () => {
+    expect(sumOfSquares([])).toBe(0);
+  });
+
+  it('handles a single element', () => {
+    expect(sumOfSquares([5])).toBe(25);
+  });
+
+  it('handles negative numbers', () => {
+    expect(sumOfSquares([-3, 4])).toBe(25);
+  });
+});
+
+describe('euclideanDistance', () => {
+  it('computes distance between two 2D points', () => {
+    expect(euclideanDistance([0, 0], [3, 4])).toBeCloseTo(5);
+  });
+
+  it('returns 0 for identical points', () => {
+    expect(euclideanDistance([1, 2], [1, 2])).toBe(0);
+  });
+
+  it('computes distance in 3D', () => {
+    expect(euclideanDistance([1, 2, 3], [4, 6, 3])).toBeCloseTo(5);
+  });
+
+  it('throws for mismatched dimensions', () => {
+    expect(() => euclideanDistance([1, 2], [1, 2, 3])).toThrow(
+      'Vectors must have the same length'
     );
   });
 });

@@ -34,6 +34,32 @@ export function average(numbers: number[]): number {
 }
 
 /**
+ * Compute the sum of squares for an array of numbers.
+ * Useful for variance calculations and distance formulas.
+ */
+export function sumOfSquares(numbers: number[]) {
+  var total = 0;
+  numbers.forEach(function (n) {
+    total = total + Math.pow(n, 2);
+  });
+  return total;
+}
+
+/**
+ * Compute the Euclidean distance between two points in n-dimensional space.
+ */
+export function euclideanDistance(a: number[], b: number[]) {
+  if (a.length !== b.length) {
+    throw new Error("Vectors must have the same length");
+  }
+  var sumSq = 0;
+  a.forEach(function (val, i) {
+    sumSq = sumSq + Math.pow(val - b[i], 2);
+  });
+  return Math.pow(sumSq, 0.5);
+}
+
+/**
  * Compute the factorial of a non-negative integer.
  * Throws an error for negative numbers.
  */
