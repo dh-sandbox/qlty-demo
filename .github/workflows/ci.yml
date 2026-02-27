@@ -7,6 +7,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   typescript:
     name: TypeScript Tests
@@ -24,7 +28,7 @@ jobs:
       - uses: qltysh/qlty-action/coverage@main
         if: always()
         with:
-          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          oidc: true
           files: app/coverage/lcov.info
           add-prefix: app/
 
@@ -44,7 +48,7 @@ jobs:
       - uses: qltysh/qlty-action/coverage@main
         if: always()
         with:
-          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          oidc: true
           files: api/coverage.xml
           add-prefix: api/
 
@@ -68,7 +72,7 @@ jobs:
       - uses: qltysh/qlty-action/coverage@main
         if: always()
         with:
-          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          oidc: true
           files: worker/coverage.xml
           add-prefix: worker/
 
@@ -89,6 +93,6 @@ jobs:
       - uses: qltysh/qlty-action/coverage@main
         if: always()
         with:
-          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          oidc: true
           files: scripts/coverage/coverage.json
           add-prefix: scripts/
