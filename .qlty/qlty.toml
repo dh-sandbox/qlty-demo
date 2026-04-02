@@ -62,50 +62,8 @@ mode = "comment"
 name = "default"
 default = true
 
-
-[[plugin]]
-name = "actionlint"
-
-[[plugin]]
-name = "bandit"
-
-[[plugin]]
-name = "eslint"
-package_file = "app/package.json"
-package_filters = ["eslint", "prettier"]
-
-[[plugin]]
-name = "gofmt"
-
-
-[[plugin]]
-name = "osv-scanner"
-
-[[plugin]]
-name = "prettier"
-
-
-
-
-[[plugin]]
-name = "ripgrep"
-mode = "comment"
-
-[[plugin]]
-name = "rubocop"
-
-[[plugin]]
-name = "ruff"
-drivers = [
-  "lint",
-]
-
-[[plugin]]
-name = "trivy"
-drivers = [
-  "config",
-  "fs-vuln",
-]
-
-[[plugin]]
-name = "trufflehog"
+# Use our organization's parent configuration
+[[source]]
+name = "dh-sandbox"
+repository = "https://github.com/dh-sandbox/qlty-shared-config"
+branch = "main"
