@@ -1,12 +1,6 @@
 AllCops:
   TargetRubyVersion: 3.2
-  NewCops: enable
+  NewCops: disable
 
 Metrics/MethodLength:
-  Max: 20
-
-Style/Documentation:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
-  EnforcedStyle: always
+  Max: 15
