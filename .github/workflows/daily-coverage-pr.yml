@@ -126,7 +126,12 @@ jobs:
 
           Day $DAY of the daily coverage pool ($LANGUAGE)."
 
+          # Delete stale remote branch if it exists, then push
+          git push origin --delete "$BRANCH" 2>/dev/null || true
           git push origin "$BRANCH"
+
+          # Ensure the label exists
+          gh label create daily-coverage --description "Automated daily coverage PRs" --color 0E8A16 2>/dev/null || true
 
           # Create the PR
           gh pr create \
