@@ -69,4 +69,4 @@ repository = "https://github.com/dh-sandbox/qlty-shared-config"
 branch = "main"
 
 [[plugin]]
-name = "black
+name = "black"
