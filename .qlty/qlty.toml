@@ -62,7 +62,7 @@ mode = "comment"
 name = "default"
 default = true
 
-Use our organization's parent configuration
+# Use our organization's parent configuration
 [[source]]
 name = "dh-sandbox"
 repository = "https://github.com/dh-sandbox/qlty-shared-config"
