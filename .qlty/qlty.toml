@@ -70,3 +70,6 @@ branch = "main"
 
 [[plugin]]
 name = "black"
+
+[[plugin]]
+name = "prettier"
