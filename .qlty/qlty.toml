@@ -63,10 +63,10 @@ name = "default"
 default = true
 
 # Use our organization's parent configuration
-[[source]]
-name = "dh-sandbox"
-repository = "https://github.com/dh-sandbox/qlty-shared-config"
-branch = "main"
+# [[source]]
+# name = "dh-sandbox"
+# repository = "https://github.com/dh-sandbox/qlty-shared-config"
+#branch = "main"
 
 [[plugin]]
 name = "black"
