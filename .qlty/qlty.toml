@@ -66,7 +66,7 @@ default = true
 # [[source]]
 # name = "dh-sandbox"
 # repository = "https://github.com/dh-sandbox/qlty-shared-config"
-#branch = "main"
+# branch = "main"
 
 [[plugin]]
 name = "black"
