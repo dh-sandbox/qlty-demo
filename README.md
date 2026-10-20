@@ -102,3 +102,6 @@ GitHub Actions workflows in `.github/workflows/`:
 
 - **ci.yml** — Runs tests and uploads coverage for all four languages
 - **qlty.yml** — Runs Qlty Cloud analysis on PRs and pushes to main
+
+- https://qlty.sh/gh/veniceai/projects/interface/builds/01a1597b-a3e7-77ba-86da-c3ff70ab6c17
+- https://qlty.sh/gh/veniceai/projects/interface/builds/01a1597b-a3e7-77ba-86da-c3ff70ab6c17
