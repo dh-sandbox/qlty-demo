@@ -1,6 +1,6 @@
 // TODO: support jittered backoff
 export async function retry<T>(fn:()=>Promise<T>,attempts=3,delayMs=100):Promise<T>{
-  let lastError: any
+  let lastError: unknown
     for(let i=0;i<attempts;i++){
       try { return await fn() } catch(err){
           lastError=err
