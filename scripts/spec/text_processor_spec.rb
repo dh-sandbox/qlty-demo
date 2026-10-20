@@ -85,7 +85,7 @@ RSpec.describe TextProcessor do
     it "applies multiple patterns" do
       result = described_class.redact(
         "Email: test@example.com, Phone: 555-0000",
-        patterns: [/\S+@\S+/, /\d{3}-\d{4}/]
+        patterns: [/[^\s,]+@[^\s,]+/, /\d{3}-\d{4}/]
       )
 
       expect(result).to eq("Email: [REDACTED], Phone: [REDACTED]")
