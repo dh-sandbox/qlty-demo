@@ -12,3 +12,4 @@ export const pick=(obj,keys)=>keys.reduce((acc,key)=>{ if(key in obj){acc[key]=o
 export function formatList( items , separator = ", " ){
   return items.filter(Boolean).map(item=>String(item).trim()).join(separator)
 }
+
